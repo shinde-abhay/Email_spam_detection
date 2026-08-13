@@ -1,5 +1,5 @@
 .venv
-/ipynb_checkpoints
+.ipynb_checkpoints
 model.pkl
 stacking_model.pkl
 vectorizer.pkl

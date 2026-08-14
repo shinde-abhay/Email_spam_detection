@@ -22,8 +22,8 @@ def load_nltk_resources():
 @st.cache_resource
 def download_and_load_models():
     # Google Drive file IDs
-    vectorizer_id = '1735_PLACEHOLDER_OR_YOUR_VEC_ID' # <-- Paste your vectorizer ID here
-    model_id = '1QHiityuQD78RrMoTf5RESsGDa-QfpPNv'      # Your verified stacking model ID
+    vectorizer_id = '1QHiityuQD78RrMoTf5RESsGDa-QfpPNv' 
+    model_id = '19bGiKPG0M3Pcy-ca0pV-kqGAeebmDBtM'  
 
     vec_output = 'vectorizer.pkl'
     model_output = 'stacking_model.pkl'
@@ -31,13 +31,13 @@ def download_and_load_models():
     # Download Vectorizer if missing
     if not os.path.exists(vec_output):
         with st.spinner("Downloading text vectorizer from cloud..."):
-            url = f'https://google.com{vectorizer_id}'
+            url = f'https://drive.google.com/file/d/1QHiityuQD78RrMoTf5RESsGDa-QfpPNv'
             gdown.download(url, vec_output, quiet=True)
 
     # Download Stacking Model if missing
     if not os.path.exists(model_output):
         with st.spinner("Downloading Stacking Classifier model (390MB)... Please wait."):
-            url = f'https://google.com{model_id}'
+            url = f'https://drive.google.com/file/d/19bGiKPG0M3Pcy-ca0pV-kqGAeebmDBtM'
             gdown.download(url, model_output, quiet=True)
 
     # Load the downloaded pickle files

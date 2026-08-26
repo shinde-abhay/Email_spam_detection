@@ -1,4 +1,15 @@
 import streamlit as st
+
+st.write("Python environment test")
+
+try:
+    import gdown
+    st.success(f"gdown imported successfully: {gdown.__version__}")
+except Exception as e:
+    st.error(f"gdown import failed: {e}")
+
+st.stop()
+import streamlit as st
 import pickle
 import string
 import os
@@ -31,13 +42,13 @@ def download_and_load_models():
     # Download Vectorizer if missing
     if not os.path.exists(vec_output):
         with st.spinner("Downloading text vectorizer from cloud..."):
-            url = f'https://drive.google.com/file/d/1QHiityuQD78RrMoTf5RESsGDa-QfpPNv'
+            url = 'https://drive.google.com/file/d/1QHiityuQD78RrMoTf5RESsGDa-QfpPNv'
             gdown.download(url, vec_output, quiet=True)
 
     # Download Stacking Model if missing
     if not os.path.exists(model_output):
         with st.spinner("Downloading Stacking Classifier model (390MB)... Please wait."):
-            url = f'https://drive.google.com/file/d/19bGiKPG0M3Pcy-ca0pV-kqGAeebmDBtM'
+            url = 'https://drive.google.com/file/d/19bGiKPG0M3Pcy-ca0pV-kqGAeebmDBtM'
             gdown.download(url, model_output, quiet=True)
 
     # Load the downloaded pickle files
